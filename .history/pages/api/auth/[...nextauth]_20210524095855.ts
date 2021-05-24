@@ -1,0 +1,38 @@
+import NextAuth from "next-auth";
+import Providers from "next-auth/providers";
+
+const correctCredentials = credentials => (
+    credentials.email=== process.env.NEXTAUTH_EMAIL &&
+    credentials.password === process.env.NEXTAUTH_PASSWORD
+)
+
+const options = {
+    providers: [
+        Providers.Credentials({
+            name: 'Credentials',
+            credentials: {
+                email : {name: 'email', type: 'email'},
+                password: {name: 'password', type: 'password'}
+            },
+
+            authorize: async credentials => {
+                if (correctCredentials(credentials)) {
+                    const user = { id: credentials, name: 'Admin'}
+                    return Promise.resolve(user)
+                } else {
+                    return Promise.resolve(null)
+                }
+            },
+        })
+    ],
+
+    pages: {
+        signIn: '/auth/signin',
+        signOut: '/auth/signout',
+        error: '/auth/error', // Error code passed in query string as ?error=
+        verifyRequest: '/auth/verify-request', // (used for check email message)
+        newUser: null // If set, new users will be directed here on first sign in
+    }
+}
+
+export default (req, res) => NextAuth(req, res, options)

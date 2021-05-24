@@ -1,4 +1,11 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Task 
+
+Personal portfolio page with a blog section, where you can add posts.
+1. As a user, I want to be able to showcase my CV on the page so that others can know me better.
+2. As a user, I want to post simple, text blog posts so that I can document some of my thoughts. However others should not be able to post on my page.
+3. As a user, I want to include my contact info and social links on my portfolio page so that others can contact me and view my Github projects.
+- Stretch: As a user, I want to be able to post code snippets and style my blog posts using markdown.
+- Stretch: I want others to be able to easily share my blog posts so that I can reach a wider audience.
 
 ## Getting Started
 

@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+code {
+    background-color: black;
+    color: white;
+    padding: 3px;
+}
