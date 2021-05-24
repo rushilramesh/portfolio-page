@@ -191,7 +191,7 @@ export default Post;
 export const getStaticPaths : GetStaticPaths = async () => {
     const res = await fetch(`${server}/api/users`)
     const posts = await res.json()
-    const paths = posts.map(post => `/posts/${post._id.toString()}`)
+    const paths = posts.map(post => `${server}/posts/${post._id.toString()}`)
     
 
     return {
