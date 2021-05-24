@@ -143,8 +143,10 @@ const About = ({
 }
 
 export const getStaticProps : GetStaticProps = async () => {
-    
-    const res = await fetch(`${server}/api/user`, {method: 'GET'})
+    const abs = process.env.NODE_ENV !== 'production' 
+        ? 'http://localhost:3000'
+        : 'https://your_deployment.server.com';
+    const res = await fetch(`${abs}/api/user`, {method: 'GET'})
     const user= await res.json()
 
     return {

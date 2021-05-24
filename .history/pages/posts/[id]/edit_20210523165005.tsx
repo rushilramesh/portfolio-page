@@ -4,7 +4,6 @@ import Layout from "../../../components/Layout"
 import Head from "next/head"
 import { useRouter } from "next/router"
 import matter from "gray-matter"
-import { server } from "../../../config"
 
 const Edit = ({
     postData 
@@ -44,13 +43,11 @@ const Edit = ({
     const handleSubmit = event => {
         setBodyToHtml()
         event.preventDefault()
-        if (window.confirm('Confirm changes?')) {
-            updatePost()
-        }
+        updatePost()
     }
 
     const updatePost = async () => {
-        await fetch(`/api/users/${postId}`, {
+        await fetch(`http://localhost:3000/api/users/${postId}`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
@@ -107,7 +104,7 @@ const Edit = ({
 export default Edit
 
 export const getStaticPaths : GetStaticPaths = async () => {
-    const res = await fetch(`${server}/api/users`)
+    const res = await fetch("http://localhost:3000/api/users")
     const posts = await res.json()
     const paths = posts.map(post => `/posts/${post._id.toString()}/edit`)
     
@@ -119,7 +116,7 @@ export const getStaticPaths : GetStaticPaths = async () => {
 }
 
 export const getStaticProps : GetStaticProps = async ({params : {id}}) =>  {
-    const res = await fetch(`${server}/api/users/${id.toString()}`, { method: 'GET'})
+    const res = await fetch(`http://localhost:3000/api/users/${id.toString()}`, { method: 'GET'})
     const postData = await res.json()
 
     return {

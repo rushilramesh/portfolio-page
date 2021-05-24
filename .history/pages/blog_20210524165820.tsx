@@ -5,7 +5,6 @@ import Link from "next/link";
 import { GetServerSideProps, GetStaticProps } from 'next'
 import moment from "moment";
 import { useSession } from "next-auth/client";
-import { server } from "../config";
 
 
 export default function Blog({ 
@@ -87,7 +86,7 @@ export default function Blog({
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-    const res = await fetch(`${server}/api/users`)
+    const res = await fetch('http://localhost:3000/api/users')
     const posts = await res.json()
     // const status = await signInState()
     return {

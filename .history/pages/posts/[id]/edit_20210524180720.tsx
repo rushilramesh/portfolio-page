@@ -44,13 +44,11 @@ const Edit = ({
     const handleSubmit = event => {
         setBodyToHtml()
         event.preventDefault()
-        if (window.confirm('Confirm changes?')) {
-            updatePost()
-        }
+        updatePost()
     }
 
     const updatePost = async () => {
-        await fetch(`/api/users/${postId}`, {
+        await fetch(`http://localhost:3000/api/users/${postId}`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"

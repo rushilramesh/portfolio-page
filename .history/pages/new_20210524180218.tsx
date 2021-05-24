@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { GetStaticProps } from "next";
 import matter from "gray-matter";
-import { server } from "../config";
 
 
 const New = ({
@@ -59,7 +58,7 @@ const New = ({
         <Layout>
             
             <div className="py-12 w-8/12 mx-auto sm:px-6 lg:px-8">
-                <div className="bg-white py-8 overflow-hidden shadow-sm sm:rounded-lg">
+                <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <h1 className=" text-4xl mb-4">Create Post </h1>
                     <div className="p-6 bg-white border-b text-justify border-gray-200">
                         <form onSubmit={handleSubmit}>
@@ -93,7 +92,7 @@ const New = ({
 }
 
 export const getStaticProps : GetStaticProps = async () => {
-    const res = await fetch(`${server}/api/user`, {method: 'GET'})
+    const res = await fetch('http://localhost:3000/api/user', {method: 'GET'})
     const user = await res.json() 
     
     return {

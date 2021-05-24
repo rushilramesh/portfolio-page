@@ -1,11 +1,10 @@
 import matter from "gray-matter"
 import remark from "remark"
 import html from "remark-html"
-import nl2br from "react-nl2br"
-import { server } from "../config"
+
 
 export const displayPost = async (id) => {
-    const res = await fetch(`${server}/api/users/${id.toString()}`, { method: 'GET'})
+    const res = await fetch(`../pages/api/users/${id.toString()}`, { method: 'GET'})
 
     const post = await res.json()
     const text = post.body

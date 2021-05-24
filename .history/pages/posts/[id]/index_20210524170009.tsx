@@ -2,10 +2,12 @@ import Layout from "../../../components/Layout"
 import Head from "next/dist/next-server/lib/head"
 import Link from "next/link"
 import Router, { useRouter } from "next/router"
-import { server } from "../../../config"
 import { GetStaticProps, GetStaticPaths } from 'next'
 import moment from "moment" 
-import { displayPost } from "../../../lib/post"
+import matter from "gray-matter"
+import remark from "remark"
+import html from "remark-html"
+
 import { useSession } from "next-auth/client"
 import { EmailShareButton,
     FacebookShareButton,
@@ -189,7 +191,7 @@ const Post = (
 
 export default Post;
 export const getStaticPaths : GetStaticPaths = async () => {
-    const res = await fetch(`${server}/api/users`)
+    const res = await fetch("/api/users")
     const posts = await res.json()
     const paths = posts.map(post => `/posts/${post._id.toString()}`)
     
@@ -203,6 +205,8 @@ export const getStaticPaths : GetStaticPaths = async () => {
 export const getStaticProps : GetStaticProps = async ({params : {id}}) =>  {
     const postData = await displayPost(id)
 
+    console.log(postData)
+
     return {
         props: {
             postData
@@ -211,3 +215,27 @@ export const getStaticProps : GetStaticProps = async ({params : {id}}) =>  {
 
 }
 
+
+
+export const displayPost = async (id) => {
+    const res = await fetch(`/api/users/${id.toString()}`, { method: 'GET'})
+
+    const post = await res.json()
+    const text = post.body
+    const md = matter(text)
+    const processedContent = await remark()
+        .use(html)
+        .process(md.content)
+    const content = processedContent.toString().split('\n').map((item, key) => {
+        return (
+            `<span key=${key}>
+              ${item}
+              <br/>
+            </span>`
+          )
+    }).join('')
+    return {
+        content,
+        ...{post}
+    }
+}

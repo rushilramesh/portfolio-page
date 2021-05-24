@@ -203,6 +203,8 @@ export const getStaticPaths : GetStaticPaths = async () => {
 export const getStaticProps : GetStaticProps = async ({params : {id}}) =>  {
     const postData = await displayPost(id)
 
+    console.log(postData)
+
     return {
         props: {
             postData

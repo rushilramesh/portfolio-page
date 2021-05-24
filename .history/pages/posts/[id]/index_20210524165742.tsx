@@ -2,7 +2,6 @@ import Layout from "../../../components/Layout"
 import Head from "next/dist/next-server/lib/head"
 import Link from "next/link"
 import Router, { useRouter } from "next/router"
-import { server } from "../../../config"
 import { GetStaticProps, GetStaticPaths } from 'next'
 import moment from "moment" 
 import { displayPost } from "../../../lib/post"
@@ -189,7 +188,7 @@ const Post = (
 
 export default Post;
 export const getStaticPaths : GetStaticPaths = async () => {
-    const res = await fetch(`${server}/api/users`)
+    const res = await fetch("http://localhost:3000/api/users")
     const posts = await res.json()
     const paths = posts.map(post => `/posts/${post._id.toString()}`)
     
@@ -203,6 +202,8 @@ export const getStaticPaths : GetStaticPaths = async () => {
 export const getStaticProps : GetStaticProps = async ({params : {id}}) =>  {
     const postData = await displayPost(id)
 
+    console.log(postData)
+
     return {
         props: {
             postData
@@ -210,4 +211,6 @@ export const getStaticProps : GetStaticProps = async ({params : {id}}) =>  {
     }
 
 }
+
+
 

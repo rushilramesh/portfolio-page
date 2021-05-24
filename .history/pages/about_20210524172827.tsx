@@ -143,7 +143,6 @@ const About = ({
 }
 
 export const getStaticProps : GetStaticProps = async () => {
-    
     const res = await fetch(`${server}/api/user`, {method: 'GET'})
     const user= await res.json()
 

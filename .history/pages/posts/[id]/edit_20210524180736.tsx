@@ -44,9 +44,7 @@ const Edit = ({
     const handleSubmit = event => {
         setBodyToHtml()
         event.preventDefault()
-        if (window.confirm('Confirm changes?')) {
-            updatePost()
-        }
+        updatePost()
     }
 
     const updatePost = async () => {
