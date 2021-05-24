@@ -9,7 +9,7 @@ import { GetServerSideProps } from "next";
 export default function SignIn({csrfToken}) {
     
     return (
-        <Layout>
+        
         <div className="h-screen flex justify-center items-start bg-gray-100">
             <form method='post' action='/api/auth/callback/credentials' className="p-10 bg-white rounded flex flex-col justify-center text-center mt-56">
                 <h1 className=" mb-1 text-3xl text-gray-600">Sign In</h1>
