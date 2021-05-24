@@ -1,41 +1,20 @@
 # Task 
 
-Personal portfolio page with a blog section, where you can add posts.
-1. As a user, I want to be able to showcase my CV on the page so that others can know me better.
-2. As a user, I want to post simple, text blog posts so that I can document some of my thoughts. However others should not be able to post on my page.
-3. As a user, I want to include my contact info and social links on my portfolio page so that others can contact me and view my Github projects.
-- Stretch: As a user, I want to be able to post code snippets and style my blog posts using markdown.
-- Stretch: I want others to be able to easily share my blog posts so that I can reach a wider audience.
+Personal portfolio page with a blog section, where you can add posts. Includes a portfolio section, a blog section which can be edited by the user and an auth feature usign next-auth. 
 
-## Getting Started
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### Navigation Bar
+A Navigation Bar at the top of the page allows users to navigate to the different pages from the home page. It includes a sign in button which allows the user to sign in to edit his blog.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### About Me Page
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Includes a personal portfolio page designed with Tailwind css. The user is be able to showcase my CV on the page so that others can know them better. It includes the users contact info abd social links so other viewers can contact the user and view his/her Github projects.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Blog Page
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Includes posts written and posted by the user, arranged from latest to earliest. Only the user is be able to post on the page. Additional features provided to the User are the edit and delete features, which allow them to update their posts if necessary. 
 
-## Learn More
+Blog posts themselves allow simple text input as well as styling elements using markdown. This allows users to post code sinppets and style their text. The posts also include a share feature for non users to share the post on several social media platforms such as twitter, facebook, whatsapp etc.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
