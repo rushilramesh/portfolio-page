@@ -109,11 +109,7 @@ export default Edit
 export const getStaticPaths : GetStaticPaths = async () => {
     const res = await fetch(`${server}/api/users`)
     const posts = await res.json()
-    const paths = posts.map(post => {
-        return {
-            params: {id: post._id.toString()}
-        }
-    })
+    const paths = posts.map(post => `${server}/posts/${post._id.toString()}/edit`)
     
 
     return {
