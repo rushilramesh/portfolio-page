@@ -5,11 +5,12 @@ import Head from "next/head"
 import { useRouter } from "next/router"
 import matter from "gray-matter"
 import { server } from "../../../config"
+import { displayPost } from "../../../lib/post"
 
 const Edit = ({
-    postData 
+    post 
 } : {
-    postData : {
+    post : {
         _id: string
         title: string
         description: string
@@ -20,7 +21,7 @@ const Edit = ({
         }
     }
 }) => {
-    const [form, setForm] = useState({ title: postData.title, description: postData.description, body: postData.body, user: { name: postData.user.name, status: 'author'}, date: postData.date})
+    const [form, setForm] = useState({ title: post.title, description: post.description, body: post.body, user: { name: post.user.name, status: 'author'}, date: post.date})
     const router = useRouter()
     const postId = router.query.id
 
@@ -92,7 +93,7 @@ const Edit = ({
                                 <button role="submit" className="p-3 bg-blue-500 text-white hover:bg-blue-400">Submit</button>
                                 <div className="container text-right text-gray-600">
                                      Written By
-                                    <p className="text-sm">{postData.user.name}</p>
+                                    <p className="text-sm">{post.user.name}</p>
                                 </div>
                             </div>
                         </form>
@@ -114,7 +115,6 @@ export const getStaticPaths : GetStaticPaths = async () => {
             params: {id: post._id.toString()}
         }
     })
-    
 
     return {
         paths,
@@ -123,13 +123,12 @@ export const getStaticPaths : GetStaticPaths = async () => {
 }
 
 export const getStaticProps : GetStaticProps = async ({params : {id}}) =>  {
-    const res = await fetch(`${server}/api/users/${id.toString()}`, { method: 'GET'})
-    const postData = await res.json()
+    const postData = await displayPost(id)
+    const post = postData.post
 
     return {
         props: {
-            postData
+            post
         }
     }
-
 }
