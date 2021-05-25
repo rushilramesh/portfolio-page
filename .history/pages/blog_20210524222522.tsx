@@ -2,7 +2,7 @@ import Layout from "../components/Layout";
 import Head from "next/head"
 import fetch from 'isomorphic-unfetch'
 import Link from "next/link";
-import { GetServerSideProps } from 'next'
+import { GetServerSideProps, GetStaticProps } from 'next'
 import moment from "moment";
 import { useSession } from "next-auth/client";
 import { server } from "../config";
@@ -58,7 +58,7 @@ export default function Blog({
                                 <Link href={`posts/${post._id}`} >
                                     <a>
                                         <div className="mt-3 md:mt-0 text-gray-700  font-bold p-1 text-4xl mb-4">
-                                            { session && (<Link href={`posts/edit/${post._id}`}>
+                                            { session && (<Link href={`posts/${post._id}/edit`}>
                                                 <a><button className="float-right text-base text-blue-600 pt-4 md:pt-0 inline-block no-underline hover:text-black">Edit</button></a>
                                             </Link>)}
                                             {post.title}

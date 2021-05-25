@@ -188,9 +188,8 @@ const Post = (
     
 
 export default Post;
-
 export const getStaticPaths : GetStaticPaths = async () => {
-    const res = await fetch(`http://localhost:3000//api/users`)
+    const res = await fetch(`${server}/api/users`)
     const posts = await res.json()
     const paths = posts.map(post => {
         return {
@@ -198,6 +197,7 @@ export const getStaticPaths : GetStaticPaths = async () => {
         }
     })
     
+
     return {
         paths,
         fallback: false
