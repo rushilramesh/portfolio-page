@@ -27,7 +27,7 @@ const About = ({
       </Head>
       <div className="container height-screen justify-center text-center mt-16 flex flex-col">
         <h1 className="font-mono text-4xl font-bold mb-4">About Me</h1>
-        <main className="flex flex-col overflow-x-auto sm:flex-row-reverse sm:m-12 shadow-2xl">
+        <main className="flex flex-col sm:overflow-x-scroll sm:flex-row-reverse sm:m-12 shadow-2xl">
           <div className="w-full sm:max-w-sm p-8 bg-gradient-to-t from-red-200 via-red-200 to-yellow-200">
             <Image
               src="/images/displayPhoto.jpeg"

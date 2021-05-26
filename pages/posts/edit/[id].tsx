@@ -75,7 +75,7 @@ const Edit = ({
         <title>Edit Post</title>
       </Head>
 
-      <div className="py-12 w-8/12 mx-auto sm:px-6 lg:px-8">
+      <div className="py-12 w-8/12 mx-auto mb-24 sm:px-6 lg:px-8">
         <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
           <h1 className=" text-4xl my-4">Edit form</h1>
           <div className="p-6 bg-white border-b text-justify border-gray-200">

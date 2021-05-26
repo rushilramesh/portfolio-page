@@ -21,15 +21,15 @@ const Layout = ({
       <header>
         <Nav />
       </header>
-      <div className="container mx-auto mb-16 text-center">
+      <div className="container mx-auto mb-488 text-center">
         <main>{children}</main>
       </div>
 
       <footer
         className={
           home
-            ? " xl:fixed xl:bottom-0 w-full bg-black border-t w-full border-gray-400 shadow text-gray-50 h-40"
-            : " w-full bottom-0 bg-black  border-t border-gray-400 shadow text-gray-50 "
+            ? " fixed bottom-0 bg-black border-t w-full border-gray-400 shadow text-gray-50 h-40"
+            : "  bg-black border-t border-gray-400 shadow mt-40 text-gray-50 "
         }
       >
         <div className="container max-w-4xl mx-auto flex py-8 ">

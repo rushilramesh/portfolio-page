@@ -60,7 +60,6 @@ export default function Blog({
       <div className="container w-full inline-block mx-auto justify-center items-center ">
         {posts.map((post) => {
           return (
-            
             <div className="bg-white border rounded w-1/2 mb-16 mx-80 py-8 px-12 inline-block  border  border-blue-200 text-justify justify-center leading-normal shadow hover:bg-gray-100 hover:shadow-md">
               <Link href={`posts/${post._id}`}>
                 <a>
