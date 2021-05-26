@@ -9,8 +9,8 @@ import { server } from '../config'
 
 const navs = [
    {name: 'Home', href: '/'},
-   {name: 'About Me', href: `${server}/about`},
-   {name: 'Blog', href: `${server}/blog`}
+   {name: 'About Me', href: `/about`},
+   {name: 'Blog', href: `/blog`}
 ]
 
 

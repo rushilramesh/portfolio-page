@@ -108,7 +108,7 @@ const Post = ({
         <title>{postData.post.title}</title>
       </Head>
       <article>
-        <div className="mt-12 inline-block h-screen">
+        <div className="mt-12  h-screen">
           <div className="text-blue-600 hover:text-black font-medium text-justify -mt-4">
             {status ? (
               <button
@@ -125,15 +125,15 @@ const Post = ({
             </Link>
           </div>
           <br />
-          <div className="container w-9/12 mx-40 flex-col border-b mb-4 bprder-gray-300">
+          <div className="container w-9/12 inline-block border-b mb-4 bprder-gray-300">
             <h1 className="text-4xl tracking-tight leading-5 font-extrabold text-center m-4">
               {postData.post.title}
             </h1>
             <div className="my-8 text-gray-500">
               {moment(postData.post.date).format("dddd, MMMM Do YYYY")}
             </div>
-            <div className="flex">
-              <div className="container px-3 mx-96 flex items-center mb-8">
+            <div className=" text-center inline-block self-center">
+              <div className="container px-3  flex items-center mb-8">
                 <img
                   alt=""
                   src="/images/displayPhoto.jpeg"
