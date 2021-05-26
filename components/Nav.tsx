@@ -3,12 +3,14 @@ import Link from 'next/link'
 import Image from 'next/dist/client/image'
 import router, { useRouter } from 'next/router'
 import { signIn, signOut, useSession} from 'next-auth/client'
+import { server } from '../config'
+
 
 
 const navs = [
    {name: 'Home', href: '/'},
-   {name: 'About Me', href: 'http://localhost:3000/about'},
-   {name: 'Blog', href: 'http://localhost:3000/blog'}
+   {name: 'About Me', href: `${server}/about`},
+   {name: 'Blog', href: `${server}/blog`}
 ]
 
 

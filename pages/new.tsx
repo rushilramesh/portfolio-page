@@ -44,7 +44,7 @@ const New = ({
   };
 
   const createPost = async () => {
-    await fetch(`${server}/api/users`, {
+    await fetch(`/api/users`, {
       method: "POST",
       headers: {
         Accept: "application/json",

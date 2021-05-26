@@ -55,7 +55,7 @@ const Post = ({
   const deletePost = async () => {
     const postId = router.query.id;
 
-    await fetch(`http://localhost:3000/api/users/${postId}`, {
+    await fetch(`/api/users/${postId}`, {
       method: "Delete",
     }).then((res) => {
       if (res.ok) {
