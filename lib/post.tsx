@@ -1,13 +1,18 @@
 import matter from "gray-matter"
 import remark from "remark"
 import html from "remark-html"
-import nl2br from "react-nl2br"
 import { server } from "../config"
+import { connectToDatabase } from "../utils/mongodb"
+import { ObjectId } from "mongodb";
+
+
 
 export const displayPost = async (id) => {
-    const res = await fetch(`${server}/api/users/${id.toString()}`, { method: 'GET'})
-
-    const post = await res.json()
+    const { db } = await connectToDatabase();
+    const o_id = new ObjectId(id.toString())
+    const res = await db.collection('posts')
+                .findOne({_id : o_id});
+    const post = JSON.parse(JSON.stringify(res))
     const text = post.body
     const md = matter(text)
     const processedContent = await remark()
@@ -23,6 +28,24 @@ export const displayPost = async (id) => {
     }).join('')
     return {
         content,
-        ...{post}
+        ...{ post}
     }
+}
+
+export const getAllPosts = async () => {
+    const { db } = await connectToDatabase();
+    const posts = await db
+                .collection("posts")
+                .find({})
+                .sort({date: -1})
+                .limit(10)
+                .toArray()
+            
+    return posts;
+}
+
+const getUser = async () => {
+    const { db } = await connectToDatabase();
+    const user = await db.collection("users").findOne({})
+    return user
 }

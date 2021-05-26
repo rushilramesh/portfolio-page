@@ -5,7 +5,9 @@ import Head from "next/head"
 import { useRouter } from "next/router"
 import matter from "gray-matter"
 import { server } from "../../../config"
-import { displayPost } from "../../../lib/post"
+import { displayPost, getAllPosts } from "../../../lib/post"
+
+
 
 const Edit = ({
     post 
@@ -108,8 +110,7 @@ const Edit = ({
 export default Edit
 
 export const getStaticPaths : GetStaticPaths = async () => {
-    const res = await fetch(`${server}/api/users`)
-    const posts = await res.json()
+    const posts = await getAllPosts()
     const paths = posts.map(post => {
         return {
             params: {id: post._id.toString()}
