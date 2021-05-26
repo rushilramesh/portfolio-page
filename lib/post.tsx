@@ -28,7 +28,7 @@ export const displayPost = async (id) => {
     }).join('')
     return {
         content,
-        ...{ post}
+        ...{post}
     }
 }
 

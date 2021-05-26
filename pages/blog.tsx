@@ -66,7 +66,7 @@ export default function Blog({
                 <a>
                   <div className="mt-3 md:mt-0 text-gray-700  font-bold p-1 text-4xl mb-4">
                     {session && (
-                      <Link href={`posts/${post._id}/edit`}>
+                      <Link href={`posts/edit/${post._id}`}>
                         <a>
                           <button className="float-right text-base text-blue-600 pt-4 md:pt-0 inline-block no-underline hover:text-black">
                             Edit

@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths, GetServerSideProps } from "next";
 import { useState } from "react";
 import Layout from "../../../components/Layout";
 import Head from "next/head";
@@ -137,21 +137,7 @@ const Edit = ({
 
 export default Edit;
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getAllPosts();
-  const paths = posts.map((post) => {
-    return {
-      params: { id: post._id.toString() },
-    };
-  });
-
-  return {
-    paths,
-    fallback: true,
-  };
-};
-
-export const getStaticProps: GetStaticProps = async ({ params: { id } }) => {
+export const getServerSideProps: GetServerSideProps = async ({ params: { id } }) => {
   const postData = await displayPost(id);
   const post = postData.post;
 
@@ -159,6 +145,5 @@ export const getStaticProps: GetStaticProps = async ({ params: { id } }) => {
     props: {
       post,
     },
-    revalidate: 4
   };
 };

@@ -41,7 +41,9 @@ const Post = ({
   if (loading || router.isFallback) {
     return (
       <Layout>
-        <h1 className="text-4xl tracking-tight leading-5 font-extrabold text-center m-4">Loading...</h1>
+        <h1 className="text-4xl tracking-tight leading-5 font-extrabold text-center m-4">
+          Loading...
+        </h1>
       </Layout>
     );
   }
@@ -168,14 +170,14 @@ export default Post;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getAllPosts();
-  
+
   const paths = posts.map((post) => {
     return {
       params: { id: post._id.toString() },
     };
   });
 
-  console.log(paths)
+  console.log(paths);
 
   return {
     paths,
@@ -189,6 +191,6 @@ export const getStaticProps: GetStaticProps = async ({ params: { id } }) => {
     props: {
       postData,
     },
-    revalidate: 4
+    revalidate: 3,
   };
 };
