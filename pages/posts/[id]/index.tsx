@@ -167,7 +167,7 @@ const Post = ({
 export default Post;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getAllPosts()
+  const posts = await getAllPosts();
   const paths = posts.map((post) => {
     return {
       params: { id: post._id.toString() },
