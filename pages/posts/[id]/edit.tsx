@@ -55,7 +55,7 @@ const Edit = ({
 
   const updatePost = async () => {
     await fetch(`/api/users/${postId}`, {
-      method: "UPDATE",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },

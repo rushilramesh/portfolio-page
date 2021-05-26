@@ -27,7 +27,7 @@ const getPostbyId = async (req: NextApiRequest, res: NextApiResponse) => {
                 return res.status(400).json({success: false}) 
             }
             break;
-        case 'UPDATE':
+        case 'POST':
             const uploadPost = await db.collection('posts').update({_id: o_id}, req.body);
             if (!uploadPost) {
                 return res.status(400).json({success: false})

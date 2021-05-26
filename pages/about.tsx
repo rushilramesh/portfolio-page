@@ -4,7 +4,6 @@ import Link from "next/link";
 import Head from "next/head";
 import { GetStaticProps } from "next";
 import { SocialIcon } from "react-social-icons";
-import { server } from "../config";
 import { connectToDatabase } from "../utils/mongodb";
 
 const About = ({
