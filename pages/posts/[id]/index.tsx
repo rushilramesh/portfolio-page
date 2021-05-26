@@ -157,7 +157,7 @@ const Post = ({
             </div>
           </div>
           <div
-            className=" w-7/12 mx-64 mt-8 text-justify"
+            className=" w-7/12 inline-block mb-8 mt-8 text-justify"
             dangerouslySetInnerHTML={{ __html: postData.content }}
           />
         </div>

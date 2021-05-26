@@ -2,7 +2,7 @@ import Layout from "../components/Layout";
 import Head from "next/head";
 import fetch from "isomorphic-unfetch";
 import Link from "next/link";
-import { GetServerSideProps } from "next";
+import { GetStaticProps } from "next";
 import moment from "moment";
 import { useSession } from "next-auth/client";
 import { server } from "../config";
@@ -57,7 +57,7 @@ export default function Blog({
         </div>
       </div>
 
-      <div className="w-full flex-col mx-auto justify-center items-center ">
+      <div className="container w-full inline-block mx-auto justify-center items-center ">
         {posts.map((post) => {
           return (
             
@@ -107,11 +107,12 @@ export default function Blog({
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const posts = await getAllPosts();
   return {
     props: {
       posts: JSON.parse(JSON.stringify(posts)),
     },
+    revalidate: 1,
   };
 };
