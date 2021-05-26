@@ -38,10 +38,10 @@ const Post = ({
   const router = useRouter();
   const [status, loading] = useSession();
 
-  if (loading) {
+  if (loading || router.isFallback) {
     return (
       <Layout>
-        <h1>Loading...</h1>
+        <h1 className="text-4xl tracking-tight leading-5 font-extrabold text-center m-4">Loading...</h1>
       </Layout>
     );
   }
@@ -125,7 +125,7 @@ const Post = ({
             </Link>
           </div>
           <br />
-          <div className="container w-9/12 inline-block border-b mb-4 bprder-gray-300">
+          <div className="container  inline-block border-b mb-4 bprder-gray-300">
             <h1 className="text-4xl tracking-tight leading-5 font-extrabold text-center m-4">
               {postData.post.title}
             </h1>
@@ -168,15 +168,18 @@ export default Post;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getAllPosts();
+  
   const paths = posts.map((post) => {
     return {
       params: { id: post._id.toString() },
     };
   });
 
+  console.log(paths)
+
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 };
 
@@ -186,5 +189,6 @@ export const getStaticProps: GetStaticProps = async ({ params: { id } }) => {
     props: {
       postData,
     },
+    revalidate: 4
   };
 };
