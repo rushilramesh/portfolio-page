@@ -19,7 +19,14 @@ const About = ({
     github: string;
   };
 }) => {
-  const skills = ["React", "Next.js", "Tailwind", "MongoDB", "Git"];
+  const fitnus = [
+    "JavaScript",
+    "React Native",
+    "Git",
+    "Node.js",
+    "Redux",
+    "Firebase",
+  ];
   return (
     <Layout>
       <Head>
@@ -83,8 +90,9 @@ const About = ({
                 self-taught web developer. I have experience in frontend
                 frameworks such as React and static side generators such as
                 Next.js. I'm familiar with the use of CSS frameworks like
-                TailwindCSS to streamline the styling process of my projects.
-                Check out some of my work{" "}
+                TailwindCSS to streamline the styling process of my projects. I
+                also have experience in cross-platform mobile app development
+                with React Native Check out some of my work{" "}
                 <a
                   href={user.github}
                   className="text-blue-500 underline hover:text-gray-600"
@@ -110,28 +118,41 @@ const About = ({
             <hr className="mt-8 mb-8" />
             <div>
               <h2 className="font-bold text-2xl uppercase py-2 text-indigo-600">
-                Experience
+                Projects
               </h2>
               <div>
-                <h3 className="mb-4">Joni.AI</h3>
+                <h3 className="font-bold text-xl mt-3 mb-4">FitNUS</h3>
                 <section className="mb-4">
                   <div className="lg:inline-block lg:w-3/12 lg:align-top italic mb-2">
-                    Jun 2021:
+                    May - Aug 2021
                   </div>
                   <div className="lg:inline-block lg:w-10/12 w-full">
-                    Fullstack Developer
+                    Cross-Platform Mobile Application
                   </div>
                 </section>
                 <section className="mb-4">
                   <div className="lg:inline-block lg:w-3/12 lg:align-top italic mb-2">
-                    Task:
+                    Overview:
                   </div>
                   <div className="lg:inline-block lg:w-9/12 w-full">
-                    Develop enterprise-grade systems using modern web
-                    development technologies. Write documentation for codebases
-                    and user guides. Support the structuring and development of
-                    new projects that Joni.AI develops, while also contributing
-                    to other areas of work, where applicable.
+                    FitNUS is a mobile fitness application that integrates a
+                    variety of workout plans with locations across NUS. FitNUS
+                    aims to encourage students to adopt a balanced and healthy
+                    lifestyle filled with sport and exercise. Check out my{" "}
+                    <a
+                      href="https://drive.google.com/file/d/1xP0PjLizXTWxZAIFVNSadMqZn4bphCP0/view?usp=sharing"
+                      className="text-blue-500 underline hover:text-gray-600"
+                    >
+                      demo video
+                    </a>{" "}
+                    and{" "}
+                    <a
+                      href="https://drive.google.com/file/d/1xP0PjLizXTWxZAIFVNSadMqZn4bphCP0/view?usp=sharing"
+                      className="text-blue-500 underline hover:text-gray-600"
+                    >
+                      github repo
+                    </a>
+                    .
                   </div>
                 </section>
                 <section className="mb-4">
@@ -139,13 +160,13 @@ const About = ({
                     Description:
                   </div>
                   <div className="lg:inline-block lg:w-9/12 w-full">
-                    Joni.Ai is a Singapore-based start-up educational
-                    technologies firm established in 2019 to create an
-                    educational ecosystem where every student can flourish
-                    regardless of circumstance. We focus on predictive
-                    algorithmic analytics, machine learning and artificial
-                    intelligence to create a scalable dynamic learning
-                    experience.
+                    The application has three key features. The 'workout logger'
+                    allows users to start a workout session, with support for
+                    static exercises such as deadlifts, as well as a run
+                    feature. The second feature is the 'tracker', that displays
+                    workout statistics and allows the user to set goals and
+                    track their progress. The 'Exercise Jio' feature allows
+                    users to create group workouts that other users can join.
                   </div>
                 </section>
                 <section className="mb-6">
@@ -153,7 +174,7 @@ const About = ({
                     Tools:
                   </div>
                   <div className="lg:inline-block lg:w-8/12 space-x-4 w-full">
-                    {skills.map((skill) => {
+                    {fitnus.map((skill) => {
                       return (
                         <span className="rounded bg-indigo-200 px-3 py-1">
                           {skill}
@@ -177,6 +198,15 @@ const About = ({
                     Bachelor of Computing (hons.) in Computer Science
                   </div>
                 </section>
+                <h3 className="mb-4">Anglo-Chinese School (Independent)</h3>
+                <section className="mb-6">
+                  <div className="lg:inline-block lg:w-3/12 lg:align-top italic mb-2">
+                    Jan 2012 - Nov 2017:
+                  </div>
+                  <div className="lg:inline-block lg:w-8/12 w-full">
+                    International Baccalaureate Diploma Programme
+                  </div>
+                </section>
               </div>
             </div>
           </div>
@@ -187,13 +217,13 @@ const About = ({
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const {db} = await connectToDatabase()
-  const res = await db.collection("users").findOne({})
-  const user = JSON.parse(JSON.stringify(res))
+  const { db } = await connectToDatabase();
+  const res = await db.collection("users").findOne({});
+  const user = JSON.parse(JSON.stringify(res));
 
   return {
     props: {
-      user
+      user,
     },
   };
 };

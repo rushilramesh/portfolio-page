@@ -1,11 +1,9 @@
 import Layout from "../components/Layout";
 import Head from "next/head";
-import fetch from "isomorphic-unfetch";
 import Link from "next/link";
 import { GetStaticProps } from "next";
 import moment from "moment";
 import { useSession } from "next-auth/client";
-import { server } from "../config";
 import { getAllPosts } from "../lib/post";
 
 export default function Blog({
@@ -110,7 +108,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const posts = await getAllPosts();
   return {
     props: {
-      posts: JSON.parse(JSON.stringify(posts)),
+      posts: JSON.parse(JSON.stringify(posts))
     },
     revalidate: 1,
   };
