@@ -147,7 +147,7 @@ const About = ({
                     </a>{" "}
                     and{" "}
                     <a
-                      href="https://drive.google.com/file/d/1xP0PjLizXTWxZAIFVNSadMqZn4bphCP0/view?usp=sharing"
+                      href="https://github.com/rushilramesh/FitNUS"
                       className="text-blue-500 underline hover:text-gray-600"
                     >
                       github repo
