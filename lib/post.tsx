@@ -40,7 +40,6 @@ export const getAllPosts = async () => {
   const posts = await db
     .collection("posts")
     .find({})
-    .sort({ date: -1 })
     .limit(10)
     .toArray();
 

@@ -27,6 +27,11 @@ const About = ({
     "Redux",
     "Firebase",
   ];
+  const step = [
+    "Java",
+    "C++",
+    "Image Processing"
+  ];
   return (
     <Layout>
       <Head>
@@ -58,16 +63,9 @@ const About = ({
               </div>
 
               <div className="flex items-center my-6 space-x-4 ">
-                <SocialIcon network="twitter" />
-                <a className="hover:underline" href={user.twitter}>
-                  Twitter
-                </a>
-              </div>
-
-              <div className="flex items-center my-6 space-x-4 ">
-                <SocialIcon network="linkedin" bgColor="#FD3838" />
+                <SocialIcon network="linkedin" bgColor="#0072B1" />
                 <a className="hover:underline" href={user.linkedin}>
-                  linkedIn
+                  LinkedIn
                 </a>
               </div>
 
@@ -106,17 +104,56 @@ const About = ({
                 I am highly motivated in expanding my horizons day by day for
                 better performance, testing and user experience. I thrive in a
                 team environment and I'm always looking forward to new
-                challenges. I spend whatever little of my free time posting on{" "}
-                <Link href="./blog">
-                  <a className="text-blue-500 underline hover:text-gray-600">
-                    my blog
-                  </a>
-                </Link>
-                .
+                challenges. 
               </p>
             </div>
             <hr className="mt-8 mb-8" />
             <div>
+            <div>
+                <h2 className="font-bold text-2xl uppercase py-2 text-indigo-600">
+                  Work Experience
+                </h2>
+                <h3 className="font-bold text-xl mt-3 mb-4">Google Asia Pacific Pte Ltd.</h3>
+                <section className="mb-6">
+                  <div className="lg:inline-block lg:w-3/12 lg:align-top italic mb-2">
+                    May 2022 - Aug 2022
+                  </div>
+                </section>
+                <section className="mb-4">
+                  <div className="lg:inline-block lg:w-3/12 lg:align-top italic mb-2">
+                    Role:
+                  </div>
+                  <div className="lg:inline-block lg:w-9/12 w-full">
+                    STEP Intern
+                  </div> 
+                </section>
+                <section className="mb-4">
+                  <div className="lg:inline-block lg:w-3/12 lg:align-top italic mb-2">
+                    Description:
+                  </div>
+                  <div className="lg:inline-block lg:w-9/12 w-full">
+                    Worked as an Android Developer Intern in the Camera from Google Team. Worked on
+                    developing a video-related feature. Roles and responsibilities included designing
+                    the implementation of the feature, writing documentation for the feature, code 
+                    implementation and testing.
+                  </div>
+                </section>
+                <section className="mb-6">
+                  <div className="lg:inline-block lg:w-3/12 lg:align-top italic mb-2">
+                    Tools:
+                  </div>
+                  <div className="lg:inline-block lg:w-8/12 space-x-4 w-full">
+                    {step.map((skill) => {
+                      return (
+                        <span className="rounded bg-indigo-200 px-3 py-1">
+                          {skill}
+                        </span>
+                      );
+                    })}
+                  </div>
+                </section>
+                </div>
+                <hr className="mt-8 mb-8" />
               <h2 className="font-bold text-2xl uppercase py-2 text-indigo-600">
                 Projects
               </h2>
@@ -189,7 +226,7 @@ const About = ({
                 <h2 className="font-bold text-2xl uppercase py-2 text-indigo-600">
                   Education
                 </h2>
-                <h3 className="mb-4">National University of Singapore</h3>
+                <h3 className="font-bold text-xl mt-3 mb-4">National University of Singapore</h3>
                 <section className="mb-6">
                   <div className="lg:inline-block lg:w-3/12 lg:align-top italic mb-2">
                     Aug 2020 - May 2024:
@@ -198,7 +235,8 @@ const About = ({
                     Bachelor of Computing (hons.) in Computer Science
                   </div>
                 </section>
-                <h3 className="mb-4">Anglo-Chinese School (Independent)</h3>
+                </div>
+                <h3 className="font-bold text-xl mt-3 mb-4">Anglo-Chinese School (Independent)</h3>
                 <section className="mb-6">
                   <div className="lg:inline-block lg:w-3/12 lg:align-top italic mb-2">
                     Jan 2012 - Nov 2017:
@@ -207,7 +245,6 @@ const About = ({
                     International Baccalaureate Diploma Programme
                   </div>
                 </section>
-              </div>
             </div>
           </div>
         </main>
