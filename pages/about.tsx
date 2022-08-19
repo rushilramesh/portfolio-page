@@ -27,11 +27,7 @@ const About = ({
     "Redux",
     "Firebase",
   ];
-  const step = [
-    "Java",
-    "C++",
-    "Image Processing"
-  ];
+  const step = ["Java", "C++", "Image Processing"];
   return (
     <Layout>
       <Head>
@@ -89,8 +85,8 @@ const About = ({
                 frameworks such as React and static side generators such as
                 Next.js. I'm familiar with the use of CSS frameworks like
                 TailwindCSS to streamline the styling process of my projects. I
-                also have experience in cross-platform mobile app development
-                with React Native Check out some of my work{" "}
+                also have experience in mobile app development. Check out some
+                of my work{" "}
                 <a
                   href={user.github}
                   className="text-blue-500 underline hover:text-gray-600"
@@ -104,16 +100,18 @@ const About = ({
                 I am highly motivated in expanding my horizons day by day for
                 better performance, testing and user experience. I thrive in a
                 team environment and I'm always looking forward to new
-                challenges. 
+                challenges.
               </p>
             </div>
             <hr className="mt-8 mb-8" />
             <div>
-            <div>
+              <div>
                 <h2 className="font-bold text-2xl uppercase py-2 text-indigo-600">
                   Work Experience
                 </h2>
-                <h3 className="font-bold text-xl mt-3 mb-4">Google Asia Pacific Pte Ltd.</h3>
+                <h3 className="font-bold text-xl mt-3 mb-4">
+                  Google Asia Pacific Pte Ltd.
+                </h3>
                 <section className="mb-6">
                   <div className="lg:inline-block lg:w-3/12 lg:align-top italic mb-2">
                     May 2022 - Aug 2022
@@ -125,17 +123,18 @@ const About = ({
                   </div>
                   <div className="lg:inline-block lg:w-9/12 w-full">
                     STEP Intern
-                  </div> 
+                  </div>
                 </section>
                 <section className="mb-4">
                   <div className="lg:inline-block lg:w-3/12 lg:align-top italic mb-2">
                     Description:
                   </div>
                   <div className="lg:inline-block lg:w-9/12 w-full">
-                    Worked as an Android Developer Intern in the Camera from Google Team. Worked on
-                    developing a video-related feature. Roles and responsibilities included designing
-                    the implementation of the feature, writing documentation for the feature, code 
-                    implementation and testing.
+                    Worked as an Android Developer Intern in the Camera from
+                    Google Team. Worked on developing a video-related feature.
+                    Roles and responsibilities included designing the
+                    implementation of the feature, writing documentation for the
+                    feature, code implementation and testing.
                   </div>
                 </section>
                 <section className="mb-6">
@@ -152,8 +151,8 @@ const About = ({
                     })}
                   </div>
                 </section>
-                </div>
-                <hr className="mt-8 mb-8" />
+              </div>
+              <hr className="mt-8 mb-8" />
               <h2 className="font-bold text-2xl uppercase py-2 text-indigo-600">
                 Projects
               </h2>
@@ -226,7 +225,9 @@ const About = ({
                 <h2 className="font-bold text-2xl uppercase py-2 text-indigo-600">
                   Education
                 </h2>
-                <h3 className="font-bold text-xl mt-3 mb-4">National University of Singapore</h3>
+                <h3 className="font-bold text-xl mt-3 mb-4">
+                  National University of Singapore
+                </h3>
                 <section className="mb-6">
                   <div className="lg:inline-block lg:w-3/12 lg:align-top italic mb-2">
                     Aug 2020 - May 2024:
@@ -235,16 +236,18 @@ const About = ({
                     Bachelor of Computing (hons.) in Computer Science
                   </div>
                 </section>
+              </div>
+              <h3 className="font-bold text-xl mt-3 mb-4">
+                Anglo-Chinese School (Independent)
+              </h3>
+              <section className="mb-6">
+                <div className="lg:inline-block lg:w-3/12 lg:align-top italic mb-2">
+                  Jan 2012 - Nov 2017:
                 </div>
-                <h3 className="font-bold text-xl mt-3 mb-4">Anglo-Chinese School (Independent)</h3>
-                <section className="mb-6">
-                  <div className="lg:inline-block lg:w-3/12 lg:align-top italic mb-2">
-                    Jan 2012 - Nov 2017:
-                  </div>
-                  <div className="lg:inline-block lg:w-8/12 w-full">
-                    International Baccalaureate Diploma Programme
-                  </div>
-                </section>
+                <div className="lg:inline-block lg:w-8/12 w-full">
+                  International Baccalaureate Diploma Programme
+                </div>
+              </section>
             </div>
           </div>
         </main>
